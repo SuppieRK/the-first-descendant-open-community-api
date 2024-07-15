@@ -30,14 +30,14 @@ jobs:
         distribution: temurin
 
     - name: Validate Gradle wrapper
-      uses: gradle/wrapper-validation-action@v1
+      uses: gradle/wrapper-validation-action@v3
 
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: Build Artifacts
         path: |

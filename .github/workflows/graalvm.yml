@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
@@ -28,7 +28,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle-test-
 
       - name: Setup GraalVM CE
-        uses: DeLaGuardo/setup-graalvm@3.1
+        uses: DeLaGuardo/setup-graalvm@5
         with:
           graalvm-version: 22.3.0.java17
 
@@ -36,7 +36,7 @@ jobs:
         run: gu install native-image
 
       - name: Docker login
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -48,3 +48,9 @@ jobs:
         run: |
           export DOCKER_IMAGE=`echo "${DOCKER_REPOSITORY_PATH}/the-first-descendant-open-community-api" | sed -e 's#//#/#' -e 's#^/##'`
           ./gradlew check dockerPushNative --no-daemon
+
+      - name: Deploy to Render
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_url"
