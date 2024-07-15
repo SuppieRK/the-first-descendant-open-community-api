@@ -20,7 +20,7 @@ modules:
     tier: 'Normal'
     type: ''
     socket-type: 'Almandine'
-    initial-capacity-cost: 6
+    initial-capacity-cost: 5
     capacity-cost-level-step: 1
     enhancements:
       - level: 0
