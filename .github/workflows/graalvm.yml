@@ -38,5 +38,5 @@ jobs:
         env:
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
-          export DOCKER_IMAGE=`echo "suppie/the-first-descendant-open-community-api" | sed -e 's#//#/#' -e 's#^/##'`
+          export DOCKER_IMAGE=`echo "docker.io/suppie/the-first-descendant-open-community-api" | sed -e 's#//#/#' -e 's#^/##'`
           ./gradlew check dockerPushNative --no-daemon
