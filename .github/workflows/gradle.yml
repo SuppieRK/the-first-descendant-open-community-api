@@ -6,7 +6,6 @@ on:
     branches-ignore:
       - main
     paths-ignore:
-      - '**.yml'
       - '**.md'
       - '**/gradle-wrapper.jar'
       - '**/gradle-wrapper.properties'
