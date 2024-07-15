@@ -31,14 +31,14 @@ jobs:
       - name: Docker login
         uses: docker/login-action@v1
         with:
-          registry: ${{ secrets.DOCKER_REGISTRY_URL }}
-          username: ${{ secrets.DOCKER_USERNAME }}
+          registry: ${{ var.DOCKER_REGISTRY_URL }}
+          username: ${{ var.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build And Push Docker Image
         env:
-          DOCKER_REPOSITORY_PATH: ${{ secrets.DOCKER_REPOSITORY_PATH }}
-          DOCKER_REGISTRY_URL: ${{ secrets.DOCKER_REGISTRY_URL }}
+          DOCKER_REPOSITORY_PATH: ${{ var.DOCKER_USERNAME }}
+          DOCKER_REGISTRY_URL: ${{ var.DOCKER_REGISTRY_URL }}
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
           export DOCKER_IMAGE=`echo "${DOCKER_REGISTRY_URL}/${DOCKER_REPOSITORY_PATH}/the-first-descendant-open-community-api" | sed -e 's#//#/#' -e 's#^/##'`
