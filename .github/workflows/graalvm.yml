@@ -40,4 +40,4 @@ jobs:
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
           export DOCKER_IMAGE=`echo "${DOCKER_REPOSITORY_PATH}/the-first-descendant-open-community-api" | sed -e 's#//#/#' -e 's#^/##'`
-          ./gradlew check dockerPushNative --no-daemon --stacktrace --info
+          ./gradlew check dockerPushNative --no-daemon
