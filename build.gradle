@@ -81,9 +81,15 @@ micronaut {
 }
 
 tasks.named("dockerBuild") {
-    images = ["suppie/the-first-descendant-open-community-api:$project.version"]
+    images = [
+            "suppie/the-first-descendant-open-community-api:$project.version",
+            "suppie/the-first-descendant-open-community-api:latest"
+    ]
 }
 
 tasks.named("dockerBuildNative") {
-    images = ["suppie/the-first-descendant-open-community-api:$project.version"]
+    images = [
+            "suppie/the-first-descendant-open-community-api:$project.version",
+            "suppie/the-first-descendant-open-community-api:latest"
+    ]
 }
