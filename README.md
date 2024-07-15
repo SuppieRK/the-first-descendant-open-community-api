@@ -6,6 +6,8 @@
 
 Unofficial open-source community API for the game.
 
+## [Join our Discord!](https://discord.gg/AJkW8Y4msF)
+
 ### [API preview](https://the-first-descendant-open-community-api.onrender.com/swagger-ui/index.html) is deployed on the [free hosting](https://render.com/) which takes time to spin up after a while. Please be patient.
 
 ## Pull Docker image and play with API locally
